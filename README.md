@@ -1,5 +1,6 @@
 # 💀 LetsBeFriends Trojan
 The smallest malware in the world! Injected into the system instead of explorer.exe and kills the current session with a blue screen of death.
+After compilation through the TinyCC compiler, the size of the .EXE file is only 2.5 kilobytes!
 
 ### [View source code](source/stub.c)
 
