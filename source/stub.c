@@ -1,4 +1,5 @@
-// кодед бай доска икс (!!!)
+// Coded by DosX-dev (GitHub)
+// Do not use this code for bad purposes! Please. 🥺
 
 #include <stdio.h>
 #include <tchar.h>
