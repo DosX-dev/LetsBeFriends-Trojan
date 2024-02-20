@@ -4,6 +4,6 @@ After compilation through the **Tiny C compiler**, the size of the .EXE file is 
 
 ### [View source code](source/payload.c)
 
-### For educational purposes only! The author of the program is not responsible for any of your actions.
+### For educational purposes only! Source code provided for antivirus corporations. The author of the program is not responsible for any of your actions.
 
 ![](preview.png)
